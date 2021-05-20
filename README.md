@@ -89,7 +89,7 @@ Things you may want to cover:
 | Column    | Type       | Options                        |
 | ----------| ---------- | ------------------------------ |
 | address   | string     | null: false                    |
-| purchases | references | null: false, foreign_key: true |
+| purchase  | references | null: false, foreign_key: true |
 
 ### Association
 
