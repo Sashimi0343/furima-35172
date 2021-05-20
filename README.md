@@ -35,7 +35,7 @@ Things you may want to cover:
 | last_name          | string | null: false               |
 | first_name_kana    | string | null: false               |
 | last_name_kana     | string | null: false               |
-| birthday           | string | null: false               |
+| birthday           | date   | null: false               |
 
 ### Association
 
@@ -56,7 +56,7 @@ Things you may want to cover:
 | delivery_charge_id  | integer    | null: false                    |
 | prefectures_id      | integer    | null: false                    |
 | days_to_ship_id     | integer    | null: false                    |
-| user_id             | references | null: false, foreign_key: true |
+| user                | references | null: false, foreign_key: true |
 #### imageはActiveStorageを使用するため未記載
 
 ### Association
@@ -70,8 +70,8 @@ Things you may want to cover:
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| user_id   | references | null: false, foreign_key: true |
-| item_id   | references | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -91,7 +91,7 @@ Things you may want to cover:
 | address          | string     | null: false                    |
 | building         | string     | none                           |
 | phone_number     | string     | null: false                    |
-| purchase_id      | references | null: false, foreign_key: true |
+| purchase         | references | null: false, foreign_key: true |
 
 ### Association
 
