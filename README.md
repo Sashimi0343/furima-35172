@@ -86,9 +86,10 @@ Things you may want to cover:
 
 ## shipping テーブル
 
-| Column   | Type   | Options     |
-| ---------| ------ | ----------- |
-| address  | string | null: false |
+| Column    | Type       | Options                        |
+| ----------| ---------- | ------------------------------ |
+| address   | string     | null: false                    |
+| purchases | references | null: false, foreign_key: true |
 
 ### Association
 
