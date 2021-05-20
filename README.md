@@ -44,7 +44,6 @@ Things you may want to cover:
 
 
 
-
 ## items テーブル
 
 | Column              | Type       | Options                        |
@@ -67,7 +66,6 @@ Things you may want to cover:
 
 
 
-
 ## purchases テーブル
 
 | Column    | Type       | Options                        |
@@ -80,7 +78,6 @@ Things you may want to cover:
 - has_one    :shipping
 - belongs_to :user
 - belongs_to :item
-
 
 
 
