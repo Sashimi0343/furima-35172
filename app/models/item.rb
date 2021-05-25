@@ -10,7 +10,8 @@ class Item < ApplicationRecord
     validates :price
     validates :image
 
-    with_options numericality: { other_than: 0 } do
+
+    with_options numericality: { other_than: 0, message: 'test' } do
       validates :category_id
       validates :status_id
       validates :delivery_charge_id
@@ -18,7 +19,6 @@ class Item < ApplicationRecord
       validates :days_to_ship_id
     end
   end
-
   belongs_to :user
   has_one_attached :image
 end
