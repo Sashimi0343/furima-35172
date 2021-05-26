@@ -44,15 +44,27 @@ RSpec.describe Item, type: :model do
       end
 
       it 'NG：priceが299以下' do
-        @item.price = '299'
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include('Price Please enter 300 〜 9,999,999')
       end
 
       it 'NG：priceが10000000以上' do
-        @item.price = '10000000'
+        @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price Please enter 300 〜 9,999,999')
+      end
+
+      it 'NG：priceが半角英語' do
+        @item.price = 'test'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price Please enter half-width numbers')
+      end
+
+      it 'NG：priceが半角英数混合' do
+        @item.price = 'test1000'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price Please enter half-width numbers')
       end
 
       it 'NG：userが存在しない' do
