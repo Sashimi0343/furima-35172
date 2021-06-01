@@ -7,11 +7,10 @@ class OrderShipping
   with_options presence: true do
     validates :user_id
     validates :item_id
-    validates :postal_code
+    validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
     validates :municipality
     validates :address
-    validates :phone_number
-    validates :order_id
+    validates :phone_number, numericality: { only_integer: true, message: 'Please enter half-width numbers' }
   end
   validates :prefecture_id, numericality: { other_than: 0, message: 'Please choose an option.' }
 
@@ -20,5 +19,4 @@ class OrderShipping
     Shipping.create(postal_code: postal_code, prefecture_id: prefecture_id, municipality: municipality,
                     address: address, building: building, phone_number: phone_number, order_id: order.id)
   end
-
 end
