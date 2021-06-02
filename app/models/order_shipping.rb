@@ -2,7 +2,7 @@ class OrderShipping
   include ActiveModel::Model
 
   attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :municipality, :address,
-                :building, :phone_number, :order_id
+                :building, :phone_number, :order_id, :token
 
   with_options presence: true do
     validates :user_id
@@ -11,6 +11,7 @@ class OrderShipping
     validates :municipality
     validates :address
     validates :phone_number, numericality: { only_integer: true, message: 'Please enter half-width numbers' }
+    validates :token
   end
   validates :prefecture_id, numericality: { other_than: 0, message: 'Please choose an option.' }
 
