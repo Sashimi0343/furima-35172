@@ -10,7 +10,8 @@ class OrderShipping
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Exampe 123-4567' }
     validates :municipality
     validates :address
-    validates :phone_number, numericality: { only_integer: true, message: 'Please enter half-width numbers' }, length: { maximum: 11 ,message: 'Please enter up to 11 letters'}
+    validates :phone_number, numericality: { only_integer: true, message: 'Please enter half-width numbers' },
+                             length: { maximum: 11, message: 'Please enter up to 11 letters' }
     validates :token
   end
   validates :prefecture_id, numericality: { other_than: 0, message: 'Please choose an option.' }
