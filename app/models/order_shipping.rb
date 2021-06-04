@@ -2,7 +2,7 @@ class OrderShipping
   include ActiveModel::Model
 
   attr_accessor :user_id, :item_id, :postal_code, :prefecture_id, :municipality, :address,
-                :building, :phone_number, :order_id, :token
+                :building, :phone_number, :token
 
   with_options presence: true do
     validates :user_id

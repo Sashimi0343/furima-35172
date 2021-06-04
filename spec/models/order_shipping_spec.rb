@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe OrderShipping, type: :model do
   describe '商品購入処理について' do
     before do
-      item = FactoryBot.create(:item) # 裏でitemを出品したuser1が存在する
-      user2 = FactoryBot.create(:user) # user2が商品を購入する人
+      item = FactoryBot.create(:item)
+      user2 = FactoryBot.create(:user)
       @order_shipping = FactoryBot.build(:order_shipping, user_id: user2.id, item_id: item.id)
     end
 
@@ -96,6 +96,13 @@ RSpec.describe OrderShipping, type: :model do
 
       it 'NG：phone_numberが全角数字' do
         @order_shipping.phone_number = '０８０５４８６４１２４'
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include('Phone number Please enter half-width numbers')
+        sleep 0.1
+      end
+
+      it 'NG：phone_numberが半角英数混同' do
+        @order_shipping.phone_number = 'test1000000'
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include('Phone number Please enter half-width numbers')
         sleep 0.1
